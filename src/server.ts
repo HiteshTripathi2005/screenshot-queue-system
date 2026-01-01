@@ -2,10 +2,14 @@ import Fastify from 'fastify';
 import rediesPlugin from './plugins/redies.plugin.js'
 import rediesTest from "./routes/redis-routes.js"
 import screenshotRoutes from './routes/screenshot-routes.js';
+import { initializeFolders } from './utils/initialize-folders.js';
 
 const fastify = Fastify({
   logger: true
 });
+
+// Initialize necessary folders
+initializeFolders();
 
 // Register all plugins and routes
 fastify.register(rediesPlugin);
